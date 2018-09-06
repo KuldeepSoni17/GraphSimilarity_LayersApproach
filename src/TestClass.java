@@ -23,7 +23,7 @@ public class TestClass {
     static int fromNodes = 1;
     static int toNodes = 50;
     static int loopGraph = 1;
-    static int permLoop = 1;
+    static int permLoop = 10;
     static long modulo = 1000000007;
     public static void main(String s[]) throws Exception
     {
