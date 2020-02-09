@@ -1,3 +1,16 @@
+///Converts text to matrix adjacency
+///Input
+///3 -- number of nodes
+///3 -- number of edges
+/// 1 1 -- Node number 1
+/// 2 2 -- Node number 2
+/// 3 3 -- Node number 3 / Node number n
+
+///output (in graphs.txt)
+/// 1 0 0
+/// 0 1 0
+/// 0 0 1
+
 package graphiso;
 
 import java.io.File;

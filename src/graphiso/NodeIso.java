@@ -86,6 +86,23 @@ public class NodeIso {
     }
 
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        int[][] graph = new int[x][x];
+        for(int i=0;i<x;i++)
+        {
+            for(int j=0;j<x;j++){
+                graph[i][j] = scanner.nextInt();
+            }
+        }
+        for(int i=0;i<graph.length;i++)
+        {
+            for(int j=0;j<graph.length;j++){
+                System.out.print(graph[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        checkNodeIso(graph, 1,2);
     }
 }

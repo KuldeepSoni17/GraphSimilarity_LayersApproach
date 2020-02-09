@@ -98,4 +98,5 @@ public class TestClass_2 {
                 writer.println(simicnt + " " + dissimcnt);
     }
 
+
 }
