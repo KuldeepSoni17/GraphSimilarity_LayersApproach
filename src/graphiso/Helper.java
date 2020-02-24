@@ -2,8 +2,8 @@ package graphiso;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+
 import graphiso.DataStructure.label;
 import graphiso.DataStructure.layer;
 
@@ -333,6 +333,65 @@ public class Helper {
         return null;
     }
 
+    public static int[][] getLayeredAdjMatrix(int[][] graphMatrix, int nodeCount, int rootNode)
+    {
+
+        int[][] LAM = new int[nodeCount][nodeCount];//Layered Adj Matrix
+        int[] parentLayer = new int[nodeCount];//Track the layer of parent node of all nodes
+        int[] nodeQueue = new int[nodeCount];//Queue to process nodes one after another in order of their appearance
+        int queueHead = 0;
+        for(int i=0;i<nodeCount;i++)
+        {
+            parentLayer[i] = -1;//initialization
+        }
+        parentLayer[rootNode] = 0;//root node's parent is 0.
+        nodeQueue[queueHead++] = rootNode;//Start with root node
+        int queueLoop = 0;
+        while(queueLoop < nodeCount)
+        {
+            int currNodeNum = nodeQueue[queueLoop];
+            for(int loop=0;loop<nodeCount;loop++)//for all nodes in graph
+            {
+                if(graphMatrix[currNodeNum][loop] != 0)//if a node have edge with current node
+                {
+                    if(parentLayer[loop]==-1)//if node is encountered first time, it is child of current node.
+                    {
+                        nodeQueue[queueHead++] = loop;//add this loop to process next
+                        parentLayer[loop] = parentLayer[currNodeNum] + 1;//parent layer is parent's parent layer + 1
+                        LAM[currNodeNum][loop] = LAM[loop][currNodeNum] = ( 2 * parentLayer[loop] ) - 1;//this denotes edge's layer.Two types of edge layer, 1. incoming edge(odd), 2. internal edge(even),
+                    }
+                    else//node is visited early
+                    {
+                        if(parentLayer[currNodeNum] == parentLayer[loop])
+                        {
+                            LAM[currNodeNum][loop] = LAM[loop][currNodeNum] = 2 * parentLayer[loop];
+                        }
+                        else if(parentLayer[currNodeNum] > parentLayer[loop])
+                        {
+                            LAM[currNodeNum][loop] = LAM[loop][currNodeNum] = ( 2 * parentLayer[currNodeNum] ) - 1;
+                            //loop is parent node. ignore.
+                        }
+                        else
+                        {
+                            //there is some error in code.
+                        }
+                    }
+                }
+            }
+            queueLoop++;
+        }
+
+        for(int i=0;i<nodeCount;i++)
+        {
+            for(int j=0;j<nodeCount;j++)
+            {
+                System.out.print(LAM[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return LAM;
+    }
+
     static class writeHelper{
         public PrintStream sWriter;
         public PrintWriter wWriter;
@@ -379,5 +438,7 @@ public class Helper {
         }
 
       }
+
+
 }
 
