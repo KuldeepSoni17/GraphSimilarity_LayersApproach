@@ -110,13 +110,13 @@ public class generate_label {
         for(int i=0;i<base_node_count;i++){nextlay_nodes[i]=null;}
 
         //complexity - n(n(10c + 2n^3 + 5cn)) = 10cn^2 + 2n^5 + 5cn^3
-        for(int i=0;i<layers.get(layer_no-1).nodes.size();i++)
+        for(int i=0;i<layers.get(layer_no-1).nodes.size();i++)//For all nodes in previous layer
         {
             //complexity - n(10c + 2n^3 + 5cn)
-            for(int j=0;j<base_node_count;j++)
+            for(int j=0;j<base_node_count;j++)//For all nodes in graph
             {
                 //complexity - 10c + 2n^3 + 5cn
-                if(ori_graph[layers.get(layer_no-1).nodes.get(i).ori_node_num][j]==1)
+                if(ori_graph[layers.get(layer_no-1).nodes.get(i).ori_node_num][j]==1)//If there is an edge between these nodes
                 {
                     //check if node not already inflated
                     writer.println( "ONE " + layers.get(layer_no-1).nodes.get(i).ori_node_num + " " + j + " ");
@@ -364,7 +364,6 @@ public class generate_label {
                 writer.println(nodes.get(x).rank_bottom_up + " " + nodes.get(x).curr_cnt + " " + a);
                 temp += nodes.get(x).rank_bottom_up + " " + nodes.get(x).curr_cnt + " " + a + " ";
             }
-            //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
             //complexity - n
             //internal edges_bottom up
             for(int zx = 0;zx<nodes.size();zx++)
@@ -511,7 +510,6 @@ public class generate_label {
                 writer.println(nodes.get(x).rank_top_down + " " + nodes.get(x).curr_cnt + " " + a  + " " + nodes.get(x).ori_node_num);
                 temp += nodes.get(x).rank_top_down + " " + nodes.get(x).curr_cnt + " " + a + " ";
             }
-            //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
 
             for(int zx=0;zx<nodes.size();zx++)
             {

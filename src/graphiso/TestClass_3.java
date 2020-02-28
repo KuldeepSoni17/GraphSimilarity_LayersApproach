@@ -596,7 +596,6 @@ public class TestClass_3 {
                 for(int x =0;x<curr_layer.nodes.size();x++) {
                     //writer.println(nodes.get(x).rank_bottom_up + " " + nodes.get(x).curr_cnt + " " + a);
                 }
-                //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
                 //complexity - n
                 //internal edges_bottom up
                 for(int zx = 0;zx<nodes.size();zx++)
@@ -831,7 +830,6 @@ public class TestClass_3 {
                     //writer.println(nodes.get(x).rank_top_down + " " + nodes.get(x).curr_cnt + " " + a);
                     temp += nodes.get(x).rank_top_down + " " + nodes.get(x).curr_cnt + " " + a;
                 }
-                //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
 
                 for(int zx=0;zx<nodes.size();zx++)
                 {

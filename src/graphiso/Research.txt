@@ -1,2 +1,7 @@
 1.
 Is checking node isomorphism, similar problem to graph isomorphism.
+
+TODO://
+1. Prepare a graphical working.
+- Show how sorting for each layer will align the nodes properly and
+  such that the resulting structure for two isomorphic graph will have same physical structure.

@@ -432,7 +432,6 @@ import static graphiso.Helper.*;
                     {
 //                    System.out.println(nodes.get(x).rank_bottom_up + " " + nodes.get(x).curr_cnt + " " + a);
                     }
-                    //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
 
                     //complexity - n
                     for(int zx = 0;zx<nodes.size();zx++)
@@ -635,7 +634,6 @@ import static graphiso.Helper.*;
                     {
 //                        System.out.println(nodes.get(x).rank_top_down + " " + nodes.get(x).curr_cnt + " " + a);
                     }
-                    //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
 
 //                    for(int zx=0;zx<nodes.size();zx++)
 //                    {
@@ -1003,7 +1001,6 @@ import static graphiso.Helper.*;
     //                    for(int x =0;x<curr_layer.nodes.size();x++) {
     //                        writer.println(nodes.get(x).rank_bottom_up + " " + nodes.get(x).curr_cnt + " " + a);
     //                    }
-    //                    //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
     //                    //internal edges_bottom up
     //                    for(int zx = 0;zx<nodes.size();zx++)
     //                    {
@@ -1221,7 +1218,6 @@ import static graphiso.Helper.*;
     //                        temp += nodes.get(x).rank_top_down + " " + nodes.get(x).curr_cnt + " " + a;
     //                    }
     //
-    //                    //TODO: IF TWO RANKS ARE SAME INTRODUCE INTERNAL EDGE
     //
     //                    for(int zx=0;zx<nodes.size();zx++)
     //                    {
