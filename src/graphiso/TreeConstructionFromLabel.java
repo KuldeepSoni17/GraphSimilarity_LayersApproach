@@ -15,9 +15,9 @@ public class TreeConstructionFromLabel {
             return null;
         }
         strData = label.split(" ");
-        System.out.println("\n" + label);
+        System.out.println("label \n o label:- " + label);
 
-        int curInd = 0;
+         int curInd = 0;
 
         resultTree.nodeCnt = Integer.parseInt(strData[curInd++]);
         resultTree.layers = new ArrayList<>();
@@ -48,13 +48,11 @@ public class TreeConstructionFromLabel {
 
         for(int i=1;i<resultTree.layersCnt;i++){
             for(int j=0;j<resultTree.layers.get(i).layerNodeCnt;j++){
+                curInd++;curInd++;curInd++;
+            }
+            for(int j=0;j<resultTree.layers.get(i).layerNodeCnt;j++){
 
                 node nodeObj = new node();
-
-                //AFTER INCOMING EDGES
-                nodeObj.rank_top_down = Integer.parseInt(strData[curInd++]);
-                curInd++;
-                nodeObj.layer_no = Integer.parseInt(strData[curInd++]);
 
                 //AFTER INTERNAL EDGES
                 nodeObj.rank_top_down = Integer.parseInt(strData[curInd++]);
@@ -139,5 +137,4 @@ public class TreeConstructionFromLabel {
             }
         }
     }
-
 }

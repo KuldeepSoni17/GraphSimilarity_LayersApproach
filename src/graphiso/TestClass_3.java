@@ -1,6 +1,7 @@
 package graphiso;//CREATED TO MATCH SIMI_DISSSIMI
 // TODO: FIRST TOP DOWN THEN BOTTOM UP AND INCLUDE TOP DOWN WHILE DOING BOTTOM UP
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
@@ -21,7 +22,7 @@ public class TestClass_3 {
     static int simicnt;
     static int dissimcnt;
     static long modulo = 1000000007;
-    public static void main(String s[]) throws Exception
+    public static void main(String[] s) throws Exception
     {
         String filename = "result";
         long glbsimi=0;
@@ -33,7 +34,7 @@ public class TestClass_3 {
             for (int loop2 = 0; loop2 < 10000; loop2++) {
                 System.out.println(loop2);
                 filename = "new_disi_result_" + loop + "_" + loop2 + new Date().getTime() +".txt";
-                writer = new PrintWriter(filename, "UTF-8");
+                writer = new PrintWriter(filename, StandardCharsets.UTF_8);
                 prime_provider.fillprimes();
                 //Scanner scanner = new Scanner(System.in);
                 //base_node_count = scanner.nextInt();
@@ -162,8 +163,8 @@ public class TestClass_3 {
     //complexity - n^2 + n + c
     public static boolean matchlabels(String[] labels1, String[] labels2)
     {
-        boolean blabeltaken[] = new boolean[labels1.length];
-        boolean ilabeltaken[] = new boolean[labels2.length];
+        boolean[] blabeltaken = new boolean[labels1.length];
+        boolean[] ilabeltaken = new boolean[labels2.length];
         int matched =0;
         for(int i=0;i<labels1.length;i++)
         {
@@ -326,7 +327,7 @@ public class TestClass_3 {
 
     static class label
     {
-        String layerstr = new String();
+        String layerstr = "";
         ArrayList<layer> layers = new ArrayList<>();
 
     }
@@ -339,7 +340,7 @@ public class TestClass_3 {
         //current root for tree
         int root_node;
         //list of inflated nodes
-        boolean inflated_nodes[];
+        boolean[] inflated_nodes;
         int inflated_node_cnt = 0;
         ArrayList<layer> layers = new ArrayList<>();
 
@@ -549,7 +550,7 @@ public class TestClass_3 {
 
         //complexity - 2n^3 + 5n^2 + 7cn + 4c + 2n
         public String rank_bottom_up()
-        {   String temp = new String();
+        {   String temp = "";
             //complexity - n^2 + 4c + 2n
             temp += rank_bottom_up_bottom();
             //complexity - n(2(n^2 + 3c + 2n) + c)  = 2n^3 + 7cn + 4n^2
@@ -688,7 +689,7 @@ public class TestClass_3 {
         //complexity - n + c + n^2 + 3c + n = n^2 + 4c + 2n
         public String rank_bottom_up_bottom()
         {
-            String temp = new String();
+            String temp = "";
             //complexity - c
             layer bottom_layer = layers.get(layers.size()-1);
             //complexity - n
@@ -778,7 +779,7 @@ public class TestClass_3 {
         public String rank_top_down()
         {//complexity - 2c
             rank_top_down_top();
-            String temp = new String();
+            String temp = "";
             //complexity - n(c + n + n^2 + 3c + n + n + n^2 + 3c + n)
             for(int a = 1;a<layers.size();a++)
             {
@@ -1974,7 +1975,7 @@ public class TestClass_3 {
     public static ArrayList<Integer> permute_generator(int n)
     {
         ArrayList<Integer> integers = new ArrayList<>();
-        boolean taken[] = new boolean[n];
+        boolean[] taken = new boolean[n];
         Random random = new Random();
         for(int i=0;i<n;i++)
         {

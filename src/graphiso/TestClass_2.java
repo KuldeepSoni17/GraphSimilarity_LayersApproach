@@ -34,7 +34,7 @@ public class TestClass_2 {
     static int simicnt;
     static int dissimcnt;
     static long modulo = 1000000007;
-    public static void main(String s[]) throws Exception
+    public static void main(String[] s) throws Exception
     {
                 writer = System.out;
                 prime_provider.fillprimes();

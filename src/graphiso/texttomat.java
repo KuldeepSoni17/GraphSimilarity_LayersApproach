@@ -15,17 +15,20 @@ package graphiso;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Scanner;
 
+@SuppressWarnings("ConditionalBreakInInfiniteLoop")
 public class texttomat {
 
+    @SuppressWarnings("ConditionalBreakInInfiniteLoop")
     public static void convert() throws Exception {
         Scanner scanner = new Scanner(System.in);
         String filename = "graph" + ".txt";
         //String filename2 = "graph_2" + ".txt";
         System.out.println(filename);
-        PrintWriter writer = new PrintWriter(filename, "UTF-8");
+        PrintWriter writer = new PrintWriter(filename, StandardCharsets.UTF_8);
         while(true) {
             int nodes = scanner.nextInt();
             int edges = scanner.nextInt();

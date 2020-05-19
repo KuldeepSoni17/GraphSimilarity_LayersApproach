@@ -1,11 +1,8 @@
 package graphiso;
 
-import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Random;
-import java.util.Scanner;
+
 import graphiso.DataStructure.label;
 import graphiso.DataStructure.layer;
 import graphiso.DataStructure.node;
@@ -23,7 +20,7 @@ public class generate_label {
     private int root_node;
     private int base_node_count;
     //list of inflated nodes
-    private boolean inflated_nodes[];
+    private boolean[] inflated_nodes;
     private int inflated_node_cnt = 0;
     private label label;
     private ArrayList<layer> layers = new ArrayList<>();
@@ -219,7 +216,7 @@ public class generate_label {
     public String rank_bottom_up_bottom()
     {
         //complexity - c
-        String temp = new String();
+        String temp = "";
         layer bottom_layer = layers.get(layers.size()-1);
         //complexity - n
         ArrayList<node> nodes = (ArrayList<node>)bottom_layer.nodes.clone();
@@ -314,7 +311,7 @@ public class generate_label {
 
     //complexity - 2n^3 + 5n^2 + 7cn + 4c + 2n
     public String rank_bottom_up()
-    {   String temp = new String();
+    {   String temp = "";
         //complexity - n^2 + 4c + 2n
         temp += rank_bottom_up_bottom();
         //complexity - n(2(n^2 + 3c + 2n) + c)  = 2n^3 + 7cn + 4n^2
@@ -525,7 +522,7 @@ public class generate_label {
                 for(int ac=0;ac<nodes_sec.get(ab).int_edges.size();ac++)
                 {
                     writer.println("MULT" + nodes_sec.get(ab).int_edges.get(ac).node1.rank_top_down + " " + nodes_sec.get(ab).curr_cnt  + " " + nodes_sec.get(ab).ori_node_num + " " + nodes_sec.get(ab).int_edges.get(ac).node1.ori_node_num);
-                    nodes_sec.get(ab).curr_cnt =(nodes_sec.get(ab).curr_cnt%modulo * nodes_sec.get(ab).int_edges.get(ac).node1.rank_top_down%modulo)%modulo;
+                    nodes_sec.get(ab).curr_cnt = (nodes_sec.get(ab).curr_cnt%modulo * nodes_sec.get(ab).int_edges.get(ac).node1.rank_top_down%modulo)%modulo;
                 }
             }
             nodes_sec.sort(new Comparator<node>() {

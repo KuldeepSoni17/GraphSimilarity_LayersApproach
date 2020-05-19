@@ -50,7 +50,7 @@ public class Helper {
     public static ArrayList<Integer> permute_generator(int n, writeHelper writer)
     {
         ArrayList<Integer> integers = new ArrayList<>();
-        boolean taken[] = new boolean[n];
+        boolean[] taken = new boolean[n];
         Random random = new Random();
         for(int i=0;i<n;i++)
         {
@@ -156,8 +156,8 @@ public class Helper {
     //complexity - n^2 + n + c
     public static boolean matchlabels(int[][] basegraph, int[][] inputgraph,String[] labels1, String[] labels2,ArrayList permutes, writeHelper writer)
     {
-        boolean blabeltaken[] = new boolean[labels1.length];
-        boolean ilabeltaken[] = new boolean[labels2.length];
+        boolean[] blabeltaken = new boolean[labels1.length];
+        boolean[] ilabeltaken = new boolean[labels2.length];
         int matched =0;
         // boolean nodeiso = true;
 //        for(int i=0;i<labels1.length;i++)
@@ -295,12 +295,7 @@ public class Helper {
             }
 
             //complexity - n^2 + n + c
-            if(matchlabels(basegraph, inputgraph, base_labels, input_labels, permutes,  writer)){
-                return true;
-            }
-            else {
-                return false;
-            }
+            return matchlabels(basegraph, inputgraph, base_labels, input_labels, permutes, writer);
         }
         else {
             writer.println("NOT SIMILAR MAJOR");
@@ -337,7 +332,7 @@ public class Helper {
     {
 
         int[][] LAM = new int[nodeCount][nodeCount];//Layered Adj Matrix
-        int[] parentLayer = new int[nodeCount];//Track the layer of parent node of all nodes
+        int[] parentLayer = new int[nodeCount] ;//Track the layer of parent node of all nodes
         int[] nodeQueue = new int[nodeCount];//Queue to process nodes one after another in order of their appearance
         int queueHead = 0;
         for(int i=0;i<nodeCount;i++)

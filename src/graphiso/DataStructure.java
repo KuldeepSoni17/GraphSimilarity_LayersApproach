@@ -44,7 +44,7 @@ public class DataStructure {
 
     static class label
     {
-        String layerstr = new String();
+        String layerstr = "";
         ArrayList<layer> layers = new ArrayList<>();
     }
 
